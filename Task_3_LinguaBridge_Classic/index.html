@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LinguaBridge – Language Translation Tool</title>
+  <meta name="description" content="Translate text between more than 30 languages, copy the result or listen to it.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+    <header class="top">
+      <h1>LinguaBridge</h1>
+      <p>Type or paste text, choose two languages, and get the translation instantly.</p>
+    </header>
+
+    <main>
+      <div class="workspace">
+        <section class="panel panel-in" aria-labelledby="lbl-source">
+          <div class="panel-head">
+            <label id="lbl-source" for="source">Translate from</label>
+            <select id="source"></select>
+          </div>
+          <textarea id="input" rows="9" maxlength="5000" placeholder="Enter text to translate" spellcheck="false"></textarea>
+          <div class="panel-foot">
+            <span id="counter" class="muted">0 / 5000</span>
+            <span class="out-actions">
+              <button type="button" id="paste" class="btn-quiet">Paste</button>
+              <button type="button" id="clear" class="btn-quiet" disabled>Clear text</button>
+            </span>
+          </div>
+        </section>
+
+        <button type="button" id="swap" class="swap" aria-label="Swap languages" title="Swap languages">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4 3 8l4 4"/><path d="M3 8h13"/><path d="m17 20 4-4-4-4"/><path d="M21 16H8"/></svg>
+        </button>
+
+        <section class="panel panel-out" aria-labelledby="lbl-target">
+          <div class="panel-head">
+            <label id="lbl-target" for="target">Translate to</label>
+            <select id="target"></select>
+          </div>
+          <div id="output" class="output" tabindex="0" aria-live="polite" aria-label="Translated text"><span class="placeholder">The translation appears here.</span></div>
+          <div class="panel-foot">
+            <span id="detected" class="muted"></span>
+            <span class="out-actions">
+              <button type="button" id="copy" class="btn-quiet" disabled>Copy</button>
+              <button type="button" id="speak" class="btn-quiet" disabled>Listen</button>
+              <button type="button" id="stop" class="btn-quiet" disabled>Stop</button>
+            </span>
+          </div>
+        </section>
+      </div>
+
+      <div class="actions">
+        <button type="button" id="translate" class="btn-main" disabled>Translate</button>
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+      </div>
+      <p class="hint">Tip: press Ctrl + Enter inside the text box to translate.</p>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
